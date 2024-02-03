@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  svc-ifood-consumer:
+    build: .
+    ports:
+      - 3001:3001
+    working_dir: /app
+    volumes:
+      - .:/app
+    networks:
+      - net-ifood
+    command: dev
+    env_file:
+      - .env
+
+networks:
+  net-ifood:
+    external:
+      name: net-ifood
